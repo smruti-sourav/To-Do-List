@@ -18,6 +18,7 @@ router.put('/:id', async (req, res) => {
         const taskId = req.params.id;
         const updatedTask = await Task.findByIdAndUpdate(taskId, { completed: req.body.completed }, { new: true });
         res.json(updatedTask);
+        console.log(JSON.stringify(updatedTask));
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
